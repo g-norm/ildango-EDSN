@@ -125,7 +125,7 @@
             <p><strong>일단고 오픈챗/카풀 협의</strong> - <a href="https://open.kakao.com/o/g8zaT2oe" target="_blank">https://open.kakao.com/o/g8zaT2oe</a></p>
         </div>
         
-        <form id="registrationForm">
+        <form id="registrationForm" action="https://script.google.com/macros/s/AKfycbzYZ0R4TlwRj6EObqub7v0AZ3EY-S8PoQW3XaTMttlc1rvpLANPeOMvL1c-FgCyTLqXdg/exec" method="POST">
             <label for="name">1. 이름:</label>
             <input type="text" id="name" name="name" required>
             
@@ -197,35 +197,35 @@
     </div>
 
     <script>
-        document.getElementById('surfOption').addEventListener('change', function() {
-            var accommodationSelect = document.getElementById('accommodationOption');
-            var dormitoryOption = accommodationSelect.querySelector('option[value="dormitory"]');
-            var paymentOptions = document.querySelectorAll('.payment-option');
-            
-            if (this.value === 'surf') {
-                dormitoryOption.disabled = false;
-                paymentOptions[0].style.display = 'flex';
-                paymentOptions[1].style.display = 'flex';
-                paymentOptions[2].style.display = 'flex';
-                paymentOptions[3].style.display = 'none';
-                paymentOptions[4].style.display = 'none';
-            } else {
-                dormitoryOption.disabled = true;
-                if (accommodationSelect.value === 'dormitory') {
-                    accommodationSelect.value = '';
-                }
-                paymentOptions[0].style.display = 'none';
-                paymentOptions[1].style.display = 'none';
-                paymentOptions[2].style.display = 'none';
-                paymentOptions[3].style.display = 'flex';
-                paymentOptions[4].style.display = 'flex';
-            }
-        });
-
-        document.getElementById('registrationForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            alert('신청이 완료되었습니다. 감사합니다!');
-        });
+document.getElementById('registrationForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+  var formData = new FormData(this);
+  var jsonData = {};
+  for (var [key, value] of formData.entries()) { 
+    jsonData[key] = value;
+  }
+  
+  fetch(this.action, {
+    method: 'POST',
+    body: JSON.stringify(jsonData),
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  })
+  .then(response => response.text())
+  .then(result => {
+    if (result === "Success") {
+      alert('신청이 완료되었습니다. 감사합니다!');
+      this.reset();
+    } else {
+      alert('오류가 발생했습니다. 다시 시도해 주세요.');
+    }
+  })
+  .catch(error => {
+    console.error('Error:', error);
+    alert('오류가 발생했습니다. 다시 시도해 주세요.');
+  });
+});
     </script>
 </body>
 </html>
