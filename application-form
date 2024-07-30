@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>양양 일단고 1박2일 참가신청</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        h1, h2, h3 {
+            color: #333;
+        }
+        h1 {
+            text-align: center;
+        }
+        .event-info {
+            background-color: #e9ecef;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        ul {
+            padding-left: 20px;
+        }
+        form {
+            display: grid;
+            gap: 15px;
+        }
+        label {
+            font-weight: bold;
+        }
+        input, select {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        button {
+            background-color: #007bff;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .companion-info {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+        .payment-options {
+            display: grid;
+            gap: 10px;
+        }
+        .payment-option {
+            display: flex;
+            align-items: center;
+        }
+        .payment-option input[type="radio"] {
+            width: auto;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>양양 일단고 1박2일 참가신청</h1>
+        
+        <div class="event-info">
+            <h2>행사 설명</h2>
+            <p><strong>양양 일단고 1박2일 참가신청서</strong></p>
+            <p>서핑의 성지, 양양 죽도해변에서 일단고와 함께 1박2일을.<br>
+            Energetic Day & Smoky Night<br>
+            낮에는 서핑과 죽도해변에서 서퍼 바이브 즐기기,<br>
+            밤에는 바베큐와 함께 다양한 일단고만의 행사와 네트워킹<br>
+            혼자 서핑하러 가보기 어려워서 못하셨던 분들 이번에 함께 즐겨요!!</p>
+            
+            <p><strong>✔️일시</strong> : 24년 9월 7일(토) ~ 8일(일)<br>
+            <strong>✔️장소</strong> : 모쿠서프 (양양군 죽도해변)</p>
+            
+            <h3>✔️참가비 : 옵션 별 안내</h3>
+            
+            <h3>제공내용</h3>
+            <ol>
+                <li>기본 (4만원): 무제한 바베큐 및 음료&주류 일체 포함 (준비된 음료 소진 시 개별 구매)</li>
+                <li>서핑 (8만원 선택 가능): 강습 & 장비 일체 포함</li>
+                <li>숙박: 
+                    <ul>
+                        <li>도미토리 8인실(3만원/서핑레슨 신청시에만 선택 가능)</li>
+                        <li>E7호텔 2인실 공유(5만원)</li>
+                        <li>E7호텔 2인실 단독 사용(10만원)</li>
+                    </ul>
+                </li>
+            </ol>
+
+            <h3>행사일정</h3>
+            <ul>
+                <li>낮 : 서핑, 크로스핏 체험 <br>
+                    <em>*크로스핏 대회가 일단고 행사와 동시에 열립니다. 체험 기회 협의중</em></li>
+                <li>저녁(18시~22시) : 무제한 바베큐 + 일단고 콘텐츠(레크레이션, 공연 등) + 네트워킹</li>
+            </ul>
+
+            <h3>입금안내</h3>
+            <ul>
+                <li>입금 계좌 : 하나 11989260267207</li>
+                <li>예금주 : 이장미</li>
+            </ul>
+
+            <p><strong>일단고 오픈챗/카풀 협의</strong> - <a href="https://open.kakao.com/o/g8zaT2oe" target="_blank">https://open.kakao.com/o/g8zaT2oe</a></p>
+        </div>
+        
+        <form id="registrationForm">
+            <label for="name">1. 이름:</label>
+            <input type="text" id="name" name="name" required>
+            
+            <label for="gender">2. 성별:</label>
+            <select id="gender" name="gender" required>
+                <option value="">선택해주세요</option>
+                <option value="male">남성</option>
+                <option value="female">여성</option>
+                <option value="other">기타</option>
+            </select>
+            
+            <label for="phone">3. 전화번호:</label>
+            <input type="tel" id="phone" name="phone" required>
+            
+            <label for="surfOption">4. 선택옵션 #1 서핑:</label>
+            <select id="surfOption" name="surfOption" required>
+                <option value="">선택해주세요</option>
+                <option value="surf">서핑 O (8만원)</option>
+                <option value="nosurf">서핑 X</option>
+            </select>
+            
+            <label for="accommodationOption">5. 선택옵션 #2 숙소:</label>
+            <select id="accommodationOption" name="accommodationOption" required>
+                <option value="">선택해주세요</option>
+                <option value="dormitory" disabled>도미토리 8인실 (3만원/서핑레슨 신청시에만 선택 가능)</option>
+                <option value="shared">E7호텔 2인실 공유 (5만원)</option>
+                <option value="single">E7호텔 2인실 단독 사용 (10만원)</option>
+            </select>
+            
+            <label>6. 동행:</label>
+            <div class="companion-info">
+                <input type="text" id="companionName" name="companionName" placeholder="동행인 이름">
+                <input type="text" id="companionPhone" name="companionPhone" placeholder="전화번호 뒷자리 4자리" maxlength="4" pattern="\d{4}">
+            </div>
+            
+            <label>7. 입금한 금액:</label>
+            <div class="payment-options">
+                <div class="payment-option">
+                    <input type="radio" id="payment1" name="payment" value="150000" required>
+                    <label for="payment1">15만원(서핑 O / 도미토리)</label>
+                </div>
+                <div class="payment-option">
+                    <input type="radio" id="payment2" name="payment" value="170000" required>
+                    <label for="payment2">17만원(서핑 O / 2인실 공유)</label>
+                </div>
+                <div class="payment-option">
+                    <input type="radio" id="payment3" name="payment" value="220000" required>
+                    <label for="payment3">22만원(서핑 O / 2인실 단독)</label>
+                </div>
+                <div class="payment-option">
+                    <input type="radio" id="payment4" name="payment" value="100000" required>
+                    <label for="payment4">10만원(서핑 X / 2인실 공유)</label>
+                </div>
+                <div class="payment-option">
+                    <input type="radio" id="payment5" name="payment" value="150000" required>
+                    <label for="payment5">15만원(서핑 X / 2인실 단독)</label>
+                </div>
+            </div>
+            
+            <label for="refundPolicy">8. 환불 규정:</label>
+            <p>"숙소의 환불규정을 고려하여, 8/18(일)까지는 취소가 가능합니다. (이후 양도만 가능하며 환불은 절대 불가)"</p>
+            <label>
+                <input type="checkbox" id="refundPolicy" name="refundPolicy" required>
+                위의 환불 규정을 확인하였으며, 이에 동의합니다.
+            </label>
+            
+            <button type="submit">신청하기</button>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('surfOption').addEventListener('change', function() {
+            var accommodationSelect = document.getElementById('accommodationOption');
+            var dormitoryOption = accommodationSelect.querySelector('option[value="dormitory"]');
+            var paymentOptions = document.querySelectorAll('.payment-option');
+            
+            if (this.value === 'surf') {
+                dormitoryOption.disabled = false;
+                paymentOptions[0].style.display = 'flex';
+                paymentOptions[1].style.display = 'flex';
+                paymentOptions[2].style.display = 'flex';
+                paymentOptions[3].style.display = 'none';
+                paymentOptions[4].style.display = 'none';
+            } else {
+                dormitoryOption.disabled = true;
+                if (accommodationSelect.value === 'dormitory') {
+                    accommodationSelect.value = '';
+                }
+                paymentOptions[0].style.display = 'none';
+                paymentOptions[1].style.display = 'none';
+                paymentOptions[2].style.display = 'none';
+                paymentOptions[3].style.display = 'flex';
+                paymentOptions[4].style.display = 'flex';
+            }
+        });
+
+        document.getElementById('registrationForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('신청이 완료되었습니다. 감사합니다!');
+        });
+    </script>
+</body>
+</html>
